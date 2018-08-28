@@ -1,8 +1,5 @@
-<title>Forca</title>
-<!--  
-Autor:  Francke Peixoto
-Data:  05-Jun-2002
--->
+<title>Jogo da Forca</title>
+
 <style>
 <!--
 .teclado {
@@ -21,7 +18,6 @@ Data:  05-Jun-2002
 	font-weight:bold;
 	text-decoration : none;
 }
-
 .gameover {
 	font-size: 13px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -40,41 +36,113 @@ Data:  05-Jun-2002
 <script language="JavaScript">
 
 /*
--------------------
-      FORCA em DHTML 0.1 beta;  
-               -------------------    
- 		      by Francke Silva
-	-------------------		   
-		MSN :  Francke@xmasters.com.br
- 						-------------------
 */
   //  BIBLIOTECA DE PALAVRAS  
   var palavras   = new Array();
-    palavras[0]  = "carteira";
-    palavras[1]  = "brasil";
-    palavras[2]  = "amorzinho";
-    palavras[3]  = "fresquinho";
-    palavras[4]  = "andrezinho";
-    palavras[5]  = "bobeira";
-    palavras[6]  = "marcos";
-    palavras[7]  = "selio";
-	palavras[8]  = "jogo";
-	palavras[9]  = "mapa";
-	palavras[10] = "babado";
-	palavras[11] = "ana";
-	palavras[12] = "critico";
-	palavras[13] = "windows";
-	palavras[14] = "linux";
-	palavras[15] = "macaco";
-	palavras[16] = "panela";
-	palavras[17] = "frederico";
-	palavras[18] = "fofura";
-	palavras[19] = "grafico";
-	palavras[20] = "mula";
-	palavras[21] = "cavalo";
-	palavras[22] = "escola";
+    palavras[0]  = "";
+    palavras[1]  = "";
+    palavras[2]  = "";
+    palavras[3]  = "";
+    palavras[4]  = "";
+    palavras[5]  = "";
+    palavras[6]  = "";
+    palavras[7]  = "";
+    palavras[8]  = "";
+    palavras[9]  = "";
+    palavras[10] = "";
+    palavras[11] = "";
+    palavras[12] = "";
+    palavras[13] = "";
+    palavras[14] = "";
+    palavras[15] = "";
+    palavras[16] = "";
+    palavras[17] = "";
+    palavras[18] = "";
+    palavras[19] = "";
+    palavras[20] = "";
+    palavras[21] = "";
+    palavras[22] = "";
+    palavras[22] = "";
+    palavras[23]  = "";
+    palavras[24]  = "";
+    palavras[25]  = "";
+    palavras[26]  = "";
+    palavras[27]  = "";
+    palavras[28]  = "";
+    palavras[29]  = "";
+    palavras[30]  = "";
+    palavras[31]  = "";
+    palavras[32]  = "";
+    palavras[33] = "";
+    palavras[34] = "";
+    palavras[35] = "";
+    palavras[36] = "";
+    palavras[37] = "";
+    palavras[38] = "";
+    palavras[39] = "";
+    palavras[40] = "";
+    palavras[41] = "";
+    palavras[42] = "";
+    palavras[43] = "";
+    palavras[44] = "";
+    palavras[45] = "";
+    palavras[46] = "";
+    palavras[47]  = "";
+    palavras[48]  = "";
+    palavras[49]  = "";
+    palavras[50]  = "";
+    palavras[51]  = "";
+    palavras[52]  = "";
+    palavras[53]  = "";
+    palavras[54]  = "";
+    palavras[55]  = "";
+    palavras[56]  = "";
+    palavras[57] = "";
+    palavras[58] = "";
+    palavras[59] = "";
+    palavras[60] = "";
+    palavras[61] = "";
+    palavras[62] = "";
+    palavras[63] = "";
+    palavras[64] = "";
+    palavras[65] = "";
+    palavras[66] = "";
+    palavras[67] = "";
+    palavras[68] = "";
+    palavras[69] = "";
+    palavras[70] = "";
+    palavras[71]  = "";
+    palavras[72]  = "";
+    palavras[73]  = "";
+    palavras[74]  = "";
+    palavras[75]  = "";
+    palavras[76]  = "";
+    palavras[77]  = "";
+    palavras[78]  = "";
+    palavras[79]  = "";
+    palavras[80] = "";
+    palavras[81] = "";
+    palavras[82] = "";
+    palavras[83] = "";
+    palavras[84] = "";
+    palavras[85] = "";
+    palavras[86] = "";
+    palavras[87] = "";
+    palavras[88] = "";
+    palavras[89] = "";
+    palavras[90] = "";
+    palavras[91]  = "";
+    palavras[92]  = "";
+    palavras[93]  = "";
+    palavras[94]  = "";
+    palavras[95]  = "";
+    palavras[96]  = "";
+    palavras[97]  = "";
+    palavras[98]  = "";
+    palavras[99]  = "";
+    palavras[100] = "";
 
-	// Variaveis GLOBAIS
+	// Globais
     var  k;
     var iconte = Math.floor(Math.random()*2);
     var dj  = document.getElementById('jg');
@@ -82,8 +150,6 @@ Data:  05-Jun-2002
     var d = "<pre><font class=gameover>";
     var iconte = Math.floor(Math.random()*7);
     var ki = new Array(palavras[iconte].length);
-      // adicinando adicionar o valor "__" 
-	//no vetor que armazena a palavra sorteada;
 	var itempodejogo = 0;
     for(k=0;k<palavras[iconte].length;k++){
 
@@ -96,23 +162,8 @@ function tempodejogo(){
   itempodejogo++;
 }
 /*
--------------------
-      SORTEIO,
-	  essa funcao eh chamada
-	  todas as vezes que a 
-	  pagina eh chamada ou
-	  quando atualiza a pagina
-	  e no termino do jogo
-	  precionando o botao
-	  NOVO JOGO; 
-          -------------------    
- 		      by Francke Silva
-	-------------------		   
-		E¹/²:  Francke@xmasters.com.br
-		WEB :  http://xmasters.com.br
-		MSN :  Francke@xmasters.com.br
- 						-------------------
-*/	
+      SORTEIO - Função para realização do sorteio.
+*/
 	
 function sorteio() {
     var djc = "<table cellpadding=2  ";
@@ -130,19 +181,7 @@ function sorteio() {
 		tempodejogo();
 }
 /*
--------------------
-      VERIFICA ERRO
-	  quando essa funcao eh chamada,
-	  significa que o usuario chutou
-	  uma letra que nao existe na 
-	  palavra sorteada;  
-          -------------------    
- 		      by Francke Silva
-	-------------------		   
-		E¹/²:  Francke@xmasters.com.br
-		WEB :  http://xmasters.com.br
-		MSN :  Francke@xmasters.com.br
- 						-------------------
+      VERIFICA ERRO - Usada para verificar se a letra escolhida não esta na palavra.
 */
 function verificaerro(){
    var m = document.getElementById('g');
@@ -170,16 +209,6 @@ function verificaerro(){
     default:
     var tecladaosome = document.getElementById('tecladao');
         tecladaosome.style.display = 'none';
-        /*
-        d = d + "        ";
-        d = d + "\n\n<b>       ";
-        d = d + "GAME OVER</b>".blink() +"  \n\n";
-        d = d + "    palavra: " + palavras[iconte];
-        d = d + "\n\n      ";
-        d = d + "<a href=# onclick='window.location.reload( false );' ";
-        d = d + "  tyle='border: ";
-        d = d + " 1px solid #000000;' class=gameover>[ NOVO JOGO ]</a>";
-        */
         d = "<img src='gover.gif'><br><br>";
         d = d + "<font class=gameover><b>GAME OVER</b></font><br>";
         
@@ -190,26 +219,13 @@ function verificaerro(){
         d = d + "<font class=gameover> Palavra: <blink>" + palavras[iconte].toUpperCase() +"</blink></font>";
 		
   }
-     // passar resultados de erro;
-	// criar boneco para a forca;  
+     // passa resultados do erro e cria boneco para forca.
         m.innerHTML = d;
         erro++;		
 }
 /*
--------------------
-      JOGAR -
-	  inicia uma jogada.
-	  quando o usuario clica em uma das
-	  letras, esses dados sao  passados
-	  por essa funcao que verifica se 
-	  existe a letra na palavra sorteada; 
-          -------------------    
- 		      by Francke Silva
-	-------------------		   
-		E¹/²:  Francke@xmasters.com.br
-		WEB :  http://xmasters.com.br
-		MSN :  Francke@xmasters.com.br
- 						-------------------
+
+      JOGAR - Verifica se existe a letra na palavra.
 */
 
 function jogar(letra){
@@ -218,11 +234,8 @@ function jogar(letra){
    var erroSim = 0;
    var coleta = "";
    for(k = 0; k < palavras[iconte].length; k++){
-      
 		if(nome[k] == letra){
-
                 ki[k] = letra;
-
          }
              if(ki[k] != "__") {
 
@@ -233,7 +246,6 @@ function jogar(letra){
     }
      if(coleta.match(letra) == letra){
 
-        //  ENCONTROU
       } else {
                erroSim = 1;
              }
@@ -290,16 +302,7 @@ function jogar(letra){
      }
 }   
 
-/*
--------------------
-      TECLADO VIRTUAL  
-          -------------------    
- 		      by Francke Silva
-	-------------------		   
-		E¹/²:  Francke@xmasters.com.br
-		WEB :  http://xmasters.com.br
-		MSN :  Francke@xmasters.com.br
- 						-------------------
+/*TECLADO VIRTUAL 
 */
 	document.write("<table id=tecladao cellpadding=3 cellspacing=6 border=1 width=390 height=90 bgcolor=#000000");
 	document.write(" style='border: 1px solid #666666;'><tr style='border: 1px #000000;'> <form name=f action=# onsubmit='return false;'>");
