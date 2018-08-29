@@ -2,7 +2,8 @@
 
 <style>
 <!--
-.teclado {
+/* Cor do teclado - preto (nas teclas brancas) */
+.teclado { 
 	font-size: 11px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-color:#000000;
@@ -10,14 +11,16 @@
 	font-weight:bold; 
 	text-decoration : none;
 }
+/* Cor do teclado - colorido (na palavra da forca) */	
 .visao {
 	font-size: 16px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-color:#FF0000;
- 	color:#FF0000;
+	font-color:#FFE700;
+ 	color:#FFE700;
 	font-weight:bold;
 	text-decoration : none;
 }
+/* Cor das letras do game over - branco (na palavra da forca) */	
 .gameover {
 	font-size: 13px;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
@@ -29,13 +32,15 @@
 //-->
 </style>
 <html>
-<body onload="sorteio();" bgcolor="#000000">
+<body onload="sorteio();" bgcolor="#000000"> 
 <center>
 <div id="jg"></div>
 <div id="tcdo">
 <script language="JavaScript">
+/* O body onload chama a função sorteio() assim que a página é carregada. */	
+/* Acima é aberto e fechado a identificação JG, assim como é aberto e fechado a identificação do teclado. */	
 
-  //  BIBLIOTECA DE PALAVRAS  
+  /* Biblioteca de palavras armazenada na array destinada. */	
   var palavras   = new Array();
     palavras[0]  = "MACACACO";
     palavras[1]  = "ARANHA";
@@ -140,34 +145,43 @@
     palavras[99]  = "UNIVERSO";
     palavras[100] = "MARTE";
 
-	// Globais
+/* Identificação das variáveis globais, para que seja feito de modo aleatório. */	
     var  k;
     var iconte = Math.floor(Math.random()*2);
     var dj  = document.getElementById('jg');
     var erro = 1;
     var d = "<pre><font class=gameover>";
     var iconte = Math.floor(Math.random()*7);
+	
+/* O Ki funciona como uma array que vai armazenar a palavra selecionada.  */
+/* O Iconte é um número que será a posição do vetor palavra a ser selecionado, neste caso podem ser palavras repetidas.  */
+	
     var ki = new Array(palavras[iconte].length);
-	var itempodejogo = 0;
+    var itempodejogo = 0;
+	
+/* Para cada letra na palavra escolhida é colocado um __ na array Ki. K, por outro lado, é apenas o contador do for. */
     for(k=0;k<palavras[iconte].length;k++){
 
         ki[k]="__";
    }
 
     var p = new Array();
-function tempodejogo(){
+  function tempodejogo(){
   setTimeout("tempodejogo()",1000);
   itempodejogo++;
 }
-/*
-      SORTEIO - Função para realização do sorteio.
-*/
+	
+/* Função para realização do sorteio que foi chamada anteriormente.  */
 	
 function sorteio() {
+	
+/* Criação dos botões do teclado.  */	
     var djc = "<table cellpadding=2  ";
         djc = djc + "cellspacing=4 border=0 width=390 ";
         djc = djc + " height=40 bgcolor=#000000 style='border: ";
-        djc = djc + " 1px solid #666666;'><tr>";
+        djc = djc + " 1px solid #ecb44a;'><tr>";
+	
+/* Se o jogador acertar a letra então o botão é apagado.  */	
     for(k = 0; k < palavras[iconte].length; k++){
    		p[k] = k;
 		djc = djc + "<td style='border: 0px solid #000000;' ";
@@ -178,9 +192,9 @@ function sorteio() {
  	    dj.innerHTML = djc;
 		tempodejogo();
 }
-/*
-      VERIFICA ERRO - Usada para verificar se a letra escolhida não esta na palavra.
-*/
+	
+/* Verifica todos os casos em que pode ocorrer game over.  */
+	
 function verificaerro(){
    var m = document.getElementById('g');
    switch (erro){
@@ -207,30 +221,44 @@ function verificaerro(){
     default:
     var tecladaosome = document.getElementById('tecladao');
         tecladaosome.style.display = 'none';
+		   
+/* Dispõe o giff do erro..  */
+		   
         d = "<img src='gover.gif'><br><br>";
         d = d + "<font class=gameover><b>GAME OVER</b></font><br>";
         
         d = d + "<br>";
+		   
+/* Dispõe o link para fazer reload na página.  */
+		   
         d = d + "<a href=# onclick='window.location.reload( false );' ";
         d = d + "  tyle='border: ";
         d = d + " 1px solid #000000;' class=gameover>[ NOVO JOGO ]</a><br>";
+		   
+/* Apresenta a palavra que não foi descoberta.  */
+		   
         d = d + "<font class=gameover> Palavra: <blink>" + palavras[iconte].toUpperCase() +"</blink></font>";
 		
   }
-     // Passa resultados do erro e cria boneco para forca.
+	
+/* Se o indivíduo errou mais ainda não o bastante para ocorrer o game over.  */
         m.innerHTML = d;
         erro++;		
 }
-/*
 
-      JOGAR - Verifica se existe a letra na palavra.
-*/
+/* Conduz a operação de jogo.*/
 
 function jogar(letra){
    var nome = palavras[iconte].toUpperCase();
        nome.split("");
    var erroSim = 0;
+	
+/* Coleta é a variável onde estará sendo armazenada a resposta. */
+	
    var coleta = "";
+	
+/* Através de um for verifica se a palavra escolhida se encontra na Array. Se não coleta-se aquela letra. */
+	
    for(k = 0; k < palavras[iconte].length; k++){
 		if(nome[k] == letra){
                 ki[k] = letra;
@@ -243,7 +271,7 @@ function jogar(letra){
        
     }
      if(coleta.match(letra) == letra){
-
+	         
       } else {
                erroSim = 1;
              }
@@ -252,7 +280,7 @@ function jogar(letra){
       t = "<table cellpadding=2 cellspacing=4 ";
       t = t + " border=0 width=390 height=40 ";
       t = t + " bgcolor=#000000 style='border: ";
-      t = t + " 1px solid #666666;'><tr>";
+      t = t + " 1px solid #ecb44a;'><tr>";
 	  
      for(ik = 0; ik < palavras[iconte].length; ik++){
 	     t = t + "<td style='border: ";
@@ -268,8 +296,12 @@ function jogar(letra){
    	   t = t + "</tr></table><br>";
   	   dj.innerHTML = t;
 	   
+/* Compara as respostas coletadas com a palavra selecionada. */
+	
      if(coleta == palavras[iconte].toUpperCase()){
 
+/* O que ocorre quando o jogador vence a partida. */
+	     
             var winmsg = "<br><img src='gwin.gif'>";
                 winmsg = winmsg + "<br><br><font class=gameover>Palavra revelada: <b><blink>";
                 winmsg = winmsg + palavras[iconte].toUpperCase() + "</blink>";
@@ -281,7 +313,6 @@ function jogar(letra){
                 winG.innerHTML =  winmsg;
                var tsome = document.getElementById('tecladao');
                    tsome.style.display = 'none';
-
 
 				   
 				var stempo = window.open("", "forca", 'width=370,height=20');
@@ -300,8 +331,8 @@ function jogar(letra){
      }
 }   
 
-/*TECLADO VIRTUAL 
-*/
+/* Disponibilização do teclado virtual. */
+	
 	document.write("<table id=tecladao cellpadding=3 cellspacing=6 border=1 width=390 height=90 bgcolor=#000000");
 	document.write(" style='border: 1px solid #666666;'><tr style='border: 1px #000000;'> <form name=f action=# onsubmit='return false;'>");
 var linha=0;
